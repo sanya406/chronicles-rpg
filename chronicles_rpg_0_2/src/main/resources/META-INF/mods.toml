@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="chroniclesrpg"
+version="0.1.0"
+displayName="Chronicles RPG"
+authors="OpenAI + user"
+description='''
+RPG progression system for a Minecraft Forge 1.20.1 modpack.
+Adds RPG XP, levels, skill points, class-aware progression and an in-game stats screen.
+'''
+displayTest="MATCH_VERSION"
+
+[[dependencies.chroniclesrpg]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.chroniclesrpg]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1]"
+ordering="NONE"
+side="BOTH"
