@@ -4,7 +4,7 @@ import com.chroniclesrpg.ChroniclesRpg;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
-import net.minecraftforge.client.event.ClientTickEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.lwjgl.glfw.GLFW;
@@ -28,7 +28,7 @@ public final class ClientEvents {
     @Mod.EventBusSubscriber(modid = ChroniclesRpg.MODID, value = net.minecraftforge.api.distmarker.Dist.CLIENT)
     public static class GameEvents {
         @SubscribeEvent
-        public static void onClientTick(ClientTickEvent event) {
+      TickEvent.ClientTickEvent event
             if (OPEN_STATS.consumeClick() && net.minecraft.client.Minecraft.getInstance().screen == null) {
                 net.minecraft.client.Minecraft.getInstance().setScreen(new RpgScreen());
             }
