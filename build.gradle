@@ -1,0 +1,50 @@
+plugins {
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.spongepowered.mixin' version '0.7.+'
+}
+
+group = 'com.chroniclesrpg'
+version = '0.2.0'
+archivesBaseName = 'chronicles-rpg'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+    copyIdeResources = true
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            mods { chroniclesrpg { source sourceSets.main } }
+        }
+        server {
+            workingDirectory project.file('run')
+            mods { chroniclesrpg { source sourceSets.main } }
+        }
+    }
+}
+
+repositories {
+    maven { url = 'https://maven.minecraftforge.net' }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.3.33'
+}
+
+tasks.named('jar', Jar).configure {
+    finalizedBy 'reobfJar'
+}
+
+jar {
+    manifest {
+        attributes([
+            'Specification-Title': 'Chronicles RPG',
+            'Specification-Vendor': 'Chronicles RPG',
+            'Specification-Version': '1',
+            'Implementation-Title': project.name,
+            'Implementation-Version': project.version
+        ])
+    }
+}
