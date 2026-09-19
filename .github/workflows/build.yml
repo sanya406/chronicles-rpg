@@ -24,12 +24,14 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+      working-directory: chronicles_rpg_0_2
 
     - name: Build with Gradle
       run: ./gradlew build
+      working-directory: chronicles_rpg_0_2
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
         name: Chronicles-RPG-Jar
-        path: build/libs/*.jar
+        path: chronicles_rpg_0_2/build/libs/*.jar
