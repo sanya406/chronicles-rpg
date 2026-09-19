@@ -1,12 +1,12 @@
 package com.chroniclesrpg;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.network.NetworkRegistry;
-import net.minecraftforge.network.SimpleChannel;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.network.simple.SimpleChannel;
 
 @Mod(ChroniclesRpg.MODID)
 public class ChroniclesRpg {
@@ -26,6 +26,6 @@ public class ChroniclesRpg {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        // Инициализация мода
+        // Инициализация
     }
 }
