@@ -22,16 +22,15 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x ./chronicles_rpg_0_2/gradlew
-
-    - name: Build with Gradle
-      run: ./chronicles_rpg_0_2/gradlew build
-      working-directory: ./chronicles_rpg_0_2
+    - name: Execute Gradle Build
+      uses: gradle/gradle-build-action@v3
+      with:
+        arguments: build
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
         name: Chronicles-RPG-Jar
-        path: chronicles_rpg_0_2/build/libs/*.jar
-        
+        path: |
+          build/libs/*.jar
+          **/build/libs/*.jar
